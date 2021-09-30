@@ -1,5 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ShopComponent } from 'src/app/shop/shop.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pager',
@@ -13,8 +12,7 @@ export class PagerComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onPagerChange(event: any) {
     this.pageChanged.emit(event.page);
