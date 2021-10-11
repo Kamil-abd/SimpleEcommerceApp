@@ -2,11 +2,11 @@ import { Component, ElementRef, Input, OnInit, Self, ViewChild } from '@angular/
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-text-inputs',
-  templateUrl: './text-inputs.component.html',
-  styleUrls: ['./text-inputs.component.scss'],
+  selector: 'app-text-input',
+  templateUrl: './text-input.component.html',
+  styleUrls: ['./text-input.component.scss'],
 })
-export class TextInputsComponent implements OnInit, ControlValueAccessor {
+export class TextInputComponent implements OnInit, ControlValueAccessor {
   @ViewChild('input', { static: true }) input: ElementRef;
   @Input() type = 'text';
   @Input() label: string;
