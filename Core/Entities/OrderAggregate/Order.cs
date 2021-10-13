@@ -3,23 +3,25 @@ using System.Collections.Generic;
 
 namespace Core.Entities.OrderAggregate
 {
-    public class Order:BaseEntity
+    public class Order : BaseEntity
     {
         public Order()
         {
         }
 
-        public Order(IReadOnlyList<OrderItem> orderItems, 
+        public Order(IReadOnlyList<OrderItem> orderItems,
             string buyerEmail,
-            Address shipToAddress, 
-            DeliveryMethod deliveryMethod,            
-            decimal subtotal)
+            Address shipToAddress,
+            DeliveryMethod deliveryMethod,
+            decimal subtotal,
+            string paymentIntentId)
         {
             BuyerEmail = buyerEmail;
             ShipToAddress = shipToAddress;
             DeliveryMethod = deliveryMethod;
             OrderItems = orderItems;
             Subtotal = subtotal;
+            PaymentIntentId = paymentIntentId;
         }
 
         public string BuyerEmail { get; set; }
