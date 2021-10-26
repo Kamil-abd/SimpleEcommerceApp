@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from 'src/app/core/guards/admin.guard';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { NotFoundComponent } from 'src/app/core/not-found/not-found.component';
 import { ServerErrorComponent } from 'src/app/core/server-error/server-error.component';
@@ -54,6 +55,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./account/account.module').then((mod) => mod.AccountModule),
     data: { breadcrumb: { skip: true } },
+  },
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, AdminGuard],
+    loadChildren: () =>
+      import('./admin/admin.module').then((mod) => mod.AdminModule),
+    data: { breadcrumb: 'Admin' },
   },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' },
 ];
