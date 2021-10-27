@@ -35,6 +35,9 @@ namespace API.Helpers
                     opt => opt.MapFrom(src => src.ItemOrdered.PictureUrl))
                     .ForMember(dest => dest.PictureUrl,
                     opt => opt.MapFrom<OrderItemUrlResolver>());
+            CreateMap<Photo, PhotoToReturnDto>()
+                .ForMember(d => d.PictureUrl,
+                    o => o.MapFrom<PhotoUrlResolver>());
         }
     }
 }
